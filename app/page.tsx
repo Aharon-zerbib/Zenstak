@@ -90,36 +90,36 @@ const highlights = [
 
 const workflows: WorkflowBlueprint[] = [
   {
-    title: "Cycle de vente orchestré",
+    title: "Relances et suivi",
     description:
-      "De la qualification à la signature, Zenstak automatise la collaboration entre équipes et assure la continuité du discours.",
-    badge: "Cycle vente",
+      "Automatisez les relances clients et suivez les paiements sans effort.",
+    badge: "Relance",
     bullets: [
-      "Playbooks multi-étapes par segment ou taille de deal",
-      "Alertes intelligentes sur les comptes à risque",
-      "Synchronisation bidirectionnelle avec vos outils métiers",
+      "Rappels automatiques par email ou SMS",
+      "Historique centralisé des échanges",
+      "Créneaux de relance configurables",
     ],
   },
   {
-    title: "Expérience client proactive",
+    title: "Devis & facturation simplifiés",
     description:
-      "Déclenchez les bonnes actions au bon moment grâce aux signaux produits, NPS et données d'usage consolidées.",
-    badge: "Client",
+      "Générez, envoyez et transformez des devis en factures en quelques clics.",
+    badge: "Facturation",
     bullets: [
-      "Scoring de santé configurable",
-      "Campagnes in-app et email coordonnées",
-      "Escalade automatique vers le support ou le success",
+      "Modèles de devis prêts à l'emploi",
+      "Conversion rapide devis → facture",
+      "Exports pour la comptabilité",
     ],
   },
   {
-    title: "Pilotage financier en continu",
+    title: "Support client léger",
     description:
-      "Reliez vos données CRM, facturation et comptabilité pour un forecast revenu fiable et partagé.",
-    badge: "Finance",
+      "Recevez et traitez les demandes clients rapidement depuis une boîte unique.",
+    badge: "Support",
     bullets: [
-      "Rapprochement automatique des contrats et factures",
-      "Projection MRR / ARR en temps réel",
-      "Exports prêts pour la direction financière",
+      "Tickets simples et assignation",
+      "Réponses modèles pour gagner du temps",
+      "Escalade vers intervention externe si besoin",
     ],
   },
 ];
@@ -132,27 +132,27 @@ const metrics = [
 
 const resources: ResourceLink[] = [
   {
-    title: "Marketplace Zenstak",
+    title: "Modèles prêts (devis & facture)",
     description:
-      "Activez des connecteurs certifiés (ERP, billing, téléphonie) ou développez les vôtres via notre API.",
+      "Gagnez du temps avec des modèles de devis et factures personnalisables.",
     href: "#",
   },
   {
-    title: "Académie CRM",
+    title: "Guides rapides",
     description:
-      "Parcours de formation interactifs, certifications par rôle et librairie de playbooks prêts à adapter.",
+      "Pas à pas pour configurer votre CRM, facturation et relances en quelques étapes.",
     href: "#",
   },
   {
-    title: "Communauté leaders RevOps",
+    title: "Connecteurs essentiels",
     description:
-      "Échangez avec vos pairs, partagez vos dashboards et inspirez-vous des meilleures pratiques.",
+      "Intégrations simples (banque, compta, e-mail) prêtes à activer pour automatiser les flux.",
     href: "#",
   },
   {
-    title: "Support premium 24/7",
+    title: "Support & communauté",
     description:
-      "Accédez à nos experts, suivi dédié et SLA renforcé pour accélérer chaque projet stratégique.",
+      "FAQ concise, guides vidéo et forum d'entraide pour résoudre les cas courants rapidement.",
     href: "#",
   },
 ];
@@ -383,17 +383,16 @@ export default function Home() {
             <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
-                  Workflows pilotés par la donnée
+                  Workflows essentiels pour micro-entreprises
                 </span>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:text-4xl">
-                  Alignez les équipes autour de parcours orchestrés et
-                  mesurables.
+                  Processus simples et prêts à l&apos;emploi pour gagner du
+                  temps.
                 </h2>
                 <p className="mt-6 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  Concevez des processus partagés qui réagissent aux signaux
-                  clés : un changement d’usage produit, une opportunité à risque
-                  ou une facture en retard déclenchent automatiquement les
-                  bonnes actions, sans ressaisies.
+                  Exemples de workflows légers qui automatisent les tâches
+                  répétitives (relances, facturation, support) sans complexité
+                  administrative. Pensés pour les petites structures.
                 </p>
               </div>
               <div className="space-y-6">
@@ -436,17 +435,16 @@ export default function Home() {
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
-                  Ressources & écosystème
+                  Ressources pratiques
                 </span>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:text-4xl">
-                  Tout ce qu’il faut pour opérer et faire évoluer votre stack
-                  CRM.
+                  Outils et guides pour gérer votre activité simplement.
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                Accédez à des connecteurs certifiés, des formations guidées et
-                des experts dédiés pour transformer vos ambitions commerciales
-                en résultats mesurables.
+                Modèles, intégrations et guides conçus pour les
+                micro-entreprises afin de gagner du temps et limiter la charge
+                administrative.
               </p>
             </div>
 
@@ -478,33 +476,119 @@ export default function Home() {
         </section>
 
         <section id="demarrer" className="py-20">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-indigo-200/60 bg-indigo-50 px-8 py-12 text-center shadow-sm dark:border-indigo-500/30 dark:bg-indigo-950/40">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300">
-              Mise en œuvre accompagnée
-            </span>
-            <h2 className="mt-6 text-3xl font-semibold text-indigo-900 dark:text-white">
-              Lancez votre hub CRM en moins d’un mois.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-indigo-900/80 dark:text-indigo-100/70">
-              Nos experts structurent vos processus, connectent vos outils
-              existants et forment vos équipes. Vous gardez la main sur la
-              configuration, nous accélérons la mise en production.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-semibold">
-              <a
-                href="mailto:hello@zenstak.com"
-                className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-white transition hover:bg-indigo-500"
-              >
-                Contacter un expert
-                <ArrowIcon className="h-3 w-3" />
-              </a>
-              <a
-                href="#applications"
-                className="inline-flex items-center gap-2 rounded-full border border-indigo-500/70 px-6 py-3 text-indigo-600 transition hover:bg-indigo-100 dark:border-indigo-400/70 dark:text-indigo-200 dark:hover:bg-indigo-900/60"
-              >
-                Découvrir les modules
-                <ArrowIcon className="h-3 w-3" />
-              </a>
+          <div className="mx-auto max-w-5xl px-6 lg:px-8">
+            <div className="rounded-2xl border border-indigo-200/60 bg-indigo-50/80 p-6 lg:p-8 shadow-sm dark:border-indigo-500/30 dark:bg-indigo-950/40">
+              <div className="lg:flex lg:items-center lg:justify-between">
+                <div className="lg:max-w-xl text-center lg:text-left">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300">
+                    Mise en œuvre accompagnée
+                  </span>
+                  <h2 className="mt-3 text-2xl font-semibold text-indigo-900 dark:text-white lg:text-3xl">
+                    Lancez votre CRM en quelques jours — sans prise de tête
+                  </h2>
+                  <p className="mt-3 text-sm text-indigo-900/80 dark:text-indigo-100/70">
+                    On vous aide à configurer l&apos;essentiel (devis, factures,
+                    relances) et à former vos process pour reprendre votre
+                    activité rapidement.
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
+                    <a
+                      href="mailto:hello@zenstak.com"
+                      className="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+                    >
+                      Contacter un expert
+                      <ArrowIcon className="h-3 w-3" />
+                    </a>
+                    <a
+                      href="#applications"
+                      className="inline-flex items-center gap-2 rounded-md border border-indigo-300 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 dark:border-indigo-400/70 dark:text-indigo-200"
+                    >
+                      Découvrir les modules
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-6 lg:mt-0 lg:ml-8 lg:w-80">
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="h-6 w-6 text-emerald-600 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden
+                      >
+                        <path
+                          d="M5 12.5l4 4L19 7"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div>
+                        <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                          Configuration en 1 jour
+                        </p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                          Paramétrage des modules essentiels.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="h-6 w-6 text-emerald-600 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden
+                      >
+                        <path
+                          d="M5 12.5l4 4L19 7"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div>
+                        <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                          Formation express
+                        </p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                          Prise en main rapide pour toute votre équipe.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="h-6 w-6 text-emerald-600 shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden
+                      >
+                        <path
+                          d="M5 12.5l4 4L19 7"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div>
+                        <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                          Assistance dédiée
+                        </p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                          Support court terme pour bien démarrer.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
