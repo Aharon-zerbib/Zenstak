@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: "Zenstak | Suite CRM unifiée",
   description:
     "Orchestrez l'intégralité de votre relation client avec une suite d'applications connectées et prêtes à l'emploi.",
+  icons: {
+    // primary favicon (SVG present in public/icons/)
+    icon: "/icons/soup.svg",
+    // shortcut icon for some browsers
+    shortcut: "/icons/soup.svg",
+    // fallback PNG already present at public/iconApp.png
+    other: [{ url: "/iconApp.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

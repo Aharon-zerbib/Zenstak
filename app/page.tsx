@@ -4,6 +4,7 @@ type AppDescriptor = {
   tag: string;
   status: "Disponible" | "Beta";
   href: string;
+  icon?: string;
 };
 
 type WorkflowBlueprint = {
@@ -19,6 +20,8 @@ type ResourceLink = {
   href: string;
 };
 
+import Image from "next/image";
+
 const navigation = [
   { label: "Applications", href: "#applications" },
   { label: "Workflows", href: "#workflows" },
@@ -32,23 +35,26 @@ const applications: AppDescriptor[] = [
       "Suivez les opportunités, prévisions et objectifs en temps réel avec une visibilité complète sur votre pipeline.",
     tag: "CRM Ventes",
     status: "Disponible",
-    href: "#",
+    href: "https://paleturquoise-elephant-436395.hostingersite.com",
+    icon: "/icons/soup.svg",
   },
   {
     name: "Support client omnicanal",
     description:
       "Unifiez tickets, chat et email pour garantir des résolutions rapides et des SLA respectés sur chaque canal.",
     tag: "Service client",
-    status: "Disponible",
+    status: "Beta",
     href: "#",
+    icon: "/icons/soup.svg",
   },
   {
     name: "Onboarding & Success",
     description:
       "Industrialisez vos parcours d'adoption, automatisez les relances et mesurez la santé de chaque compte.",
     tag: "Customer Success",
-    status: "Disponible",
+    status: "Beta",
     href: "#",
+    icon: "/icons/soup.svg",
   },
   {
     name: "Marketing automation",
@@ -57,40 +63,28 @@ const applications: AppDescriptor[] = [
     tag: "Marketing",
     status: "Beta",
     href: "#",
-  },
-  {
-    name: "Portail partenaire",
-    description:
-      "Alignez votre réseau indirect avec des playbooks partagés, des objectifs clairs et un reporting consolidé.",
-    tag: "Channel",
-    status: "Beta",
-    href: "#",
-  },
-  {
-    name: "Revenue analytics",
-    description:
-      "Pilotez la croissance avec des dashboards alimentés en temps réel par vos données CRM, finance et produit.",
-    tag: "Insights",
-    status: "Disponible",
-    href: "#",
+    icon: "/icons/soup.svg",
   },
 ];
 
 const highlights = [
   {
-    title: "Vue 360°",
-    description: "Profils unifiés, historique complet et signaux d'engagement centralisés.",
-    accent: "360",
+    title: "Vue client 360°",
+    description:
+      "Un profil client unifié : historique, interactions et signaux métier accessibles en un seul endroit.",
+    accent: "360°",
   },
   {
-    title: "Automations no-code",
-    description: "Playbooks visuels, conditions avancées et synchronisation bidirectionnelle.",
-    accent: "NO",
+    title: "Automatisations visuelles",
+    description:
+      "Créez des playbooks sans code, tests conditionnels et scénarios multi-étapes en quelques clics.",
+    accent: "NO-CODE",
   },
   {
-    title: "Données fiables",
-    description: "Connecteurs natifs, gouvernance des accès et traçabilité intégrée.",
-    accent: "DATA",
+    title: "Données de confiance",
+    description:
+      "Connecteurs natifs, gouvernance fine et traçabilité pour des décisions basées sur des données propres.",
+    accent: "QUALITÉ",
   },
 ] as const;
 
@@ -178,7 +172,12 @@ function ArrowIcon({ className }: { className?: string }) {
         strokeLinejoin="round"
         strokeWidth={1.5}
       />
-      <path d="M9 6H1.5" stroke="currentColor" strokeLinecap="round" strokeWidth={1.5} />
+      <path
+        d="M9 6H1.5"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth={1.5}
+      />
     </svg>
   );
 }
@@ -187,19 +186,37 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <header className="relative isolate overflow-hidden">
-  <div className="absolute inset-0 -z-20 bg-linear-to-br from-indigo-500 via-indigo-500/85 to-sky-500 dark:from-zinc-950 dark:via-indigo-900/80 dark:to-indigo-950" />
-  <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.45)_0%,rgba(14,116,144,0)_60%)]" />
+        <div className="absolute inset-0 -z-20 bg-linear-to-br from-indigo-500 via-indigo-500/85 to-sky-500 dark:from-zinc-950 dark:via-indigo-900/80 dark:to-indigo-950" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.45)_0%,rgba(14,116,144,0)_60%)]" />
 
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-12 lg:px-10 lg:pb-28 lg:pt-16">
           <nav className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center justify-between gap-6">
-              <span className="text-xl font-semibold tracking-tight text-white">Zenstak</span>
-              <a
-                href="#demarrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur transition hover:bg-white/20 hover:text-white"
-              >
-                Demander une démo
-              </a>
+              <div className="inline-flex items-center gap-3">
+                <div className="rounded-md bg-white p-1.5 shadow-sm">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className="h-6 w-6 text-zinc-900"
+                  >
+                    <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" />
+                    <path d="M7 21h10" />
+                    <path d="M19.5 12 22 6" />
+                    <path d="M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62" />
+                    <path d="M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62" />
+                    <path d="M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62" />
+                  </svg>
+                </div>
+                <span className="text-xl font-semibold tracking-tight text-white">
+                  Zenstak
+                </span>
+              </div>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
               {navigation.map((item) => (
@@ -215,16 +232,15 @@ export default function Home() {
           </nav>
 
           <div className="mt-16 max-w-4xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-              Suite CRM modulaire
-            </span>
             <h1 className="mt-8 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Une plateforme pensée pour aligner ventes, success et finance autour du client.
+              Une plateforme pensée pour aligner ventes, success et finance
+              autour du client.
             </h1>
             <p className="mt-6 text-lg text-white/80 sm:text-xl">
-              Zenstak centralise vos processus go-to-market, automatise les workflows critiques et
-              offre une vision unifiée de la relation client. Passez de la donnée dispersée à une
-              expérience fluide pour vos équipes et vos clients.
+              Zenstak centralise vos processus go-to-market, automatise les
+              workflows et offre une vision unifiée de la relation client.
+              Passez de la donnée dispersée à une expérience fluide pour vos
+              équipes et vos clients.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4 text-sm font-medium text-white/80">
               <a
@@ -249,10 +265,12 @@ export default function Home() {
                 key={item.title}
                 className="rounded-3xl border border-white/15 bg-white/10 p-6 text-white/85 backdrop-blur transition hover:bg-white/15"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-xs font-semibold tracking-[0.2em] text-white">
+                <span className="inline-flex h-10 w-10 items-center justify-center">
                   {item.accent}
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-white">{item.title}</h3>
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  {item.title}
+                </h3>
                 <p className="mt-3 text-sm text-white/80">{item.description}</p>
               </div>
             ))}
@@ -264,8 +282,12 @@ export default function Home() {
                 key={metric.label}
                 className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur"
               >
-                <dt className="text-xs uppercase tracking-[0.2em]">{metric.label}</dt>
-                <dd className="mt-3 text-2xl font-semibold text-white">{metric.value}</dd>
+                <dt className="text-xs uppercase tracking-[0.2em]">
+                  {metric.label}
+                </dt>
+                <dd className="mt-3 text-2xl font-semibold text-white">
+                  {metric.value}
+                </dd>
               </div>
             ))}
           </dl>
@@ -284,13 +306,14 @@ export default function Home() {
                   Suite d&apos;applications
                 </span>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:text-4xl">
-                  Chaque équipe dispose de l&apos;application dont elle a besoin, connectée aux autres.
+                  Chaque équipe dispose de l&apos;application dont elle a
+                  besoin, connectée aux autres.
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                Composez votre stack idéale : activez uniquement les modules utiles, adaptez les
-                processus à votre métier et partagez la même donnée de référence entre ventes,
-                success, finance et direction.
+                Composez votre stack idéale : activez uniquement les modules
+                utiles, adaptez les processus à votre métier et partagez la même
+                donnée de référence entre ventes, success, finance et direction.
               </p>
             </div>
 
@@ -301,13 +324,30 @@ export default function Home() {
                   className="group flex h-full flex-col justify-between rounded-3xl border border-zinc-200/70 bg-white/80 p-8 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-indigo-500/60 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900/60"
                 >
                   <div>
-                    <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
-                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400" />
-                      {app.tag}
-                    </span>
-                    <h3 className="mt-5 text-2xl font-semibold text-zinc-900 dark:text-white">
-                      {app.name}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      {app.icon ? (
+                        <Image
+                          src={app.icon}
+                          alt={`${app.name} icon`}
+                          width={40}
+                          height={40}
+                          className="h-10 w-10 rounded-md bg-white/5 p-1 text-indigo-600"
+                        />
+                      ) : (
+                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-indigo-100 text-indigo-700">
+                          <span className="sr-only">Icon</span>
+                        </span>
+                      )}
+                      <div>
+                        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
+                          <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400" />
+                          {app.tag}
+                        </span>
+                        <h3 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-white">
+                          {app.name}
+                        </h3>
+                      </div>
+                    </div>
                     <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                       {app.description}
                     </p>
@@ -324,6 +364,8 @@ export default function Home() {
                     </span>
                     <a
                       href={app.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                     >
                       Ouvrir
@@ -344,12 +386,14 @@ export default function Home() {
                   Workflows pilotés par la donnée
                 </span>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:text-4xl">
-                  Alignez les équipes autour de parcours orchestrés et mesurables.
+                  Alignez les équipes autour de parcours orchestrés et
+                  mesurables.
                 </h2>
                 <p className="mt-6 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  Concevez des processus partagés qui réagissent aux signaux clés : un changement
-                  d’usage produit, une opportunité à risque ou une facture en retard déclenchent
-                  automatiquement les bonnes actions, sans ressaisies.
+                  Concevez des processus partagés qui réagissent aux signaux
+                  clés : un changement d’usage produit, une opportunité à risque
+                  ou une facture en retard déclenchent automatiquement les
+                  bonnes actions, sans ressaisies.
                 </p>
               </div>
               <div className="space-y-6">
@@ -395,12 +439,14 @@ export default function Home() {
                   Ressources & écosystème
                 </span>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:text-4xl">
-                  Tout ce qu’il faut pour opérer et faire évoluer votre stack CRM.
+                  Tout ce qu’il faut pour opérer et faire évoluer votre stack
+                  CRM.
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                Accédez à des connecteurs certifiés, des formations guidées et des experts dédiés
-                pour transformer vos ambitions commerciales en résultats mesurables.
+                Accédez à des connecteurs certifiés, des formations guidées et
+                des experts dédiés pour transformer vos ambitions commerciales
+                en résultats mesurables.
               </p>
             </div>
 
@@ -440,9 +486,9 @@ export default function Home() {
               Lancez votre hub CRM en moins d’un mois.
             </h2>
             <p className="mt-4 text-sm leading-6 text-indigo-900/80 dark:text-indigo-100/70">
-              Nos experts structurent vos processus, connectent vos outils existants et forment vos
-              équipes. Vous gardez la main sur la configuration, nous accélérons la mise en
-              production.
+              Nos experts structurent vos processus, connectent vos outils
+              existants et forment vos équipes. Vous gardez la main sur la
+              configuration, nous accélérons la mise en production.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-semibold">
               <a
@@ -466,18 +512,32 @@ export default function Home() {
 
       <footer className="border-t border-zinc-200/70 bg-zinc-100/60 py-8 text-sm text-zinc-600 dark:border-white/10 dark:bg-zinc-900/70 dark:text-zinc-400">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
-          <span>&copy; {new Date().getFullYear()} Zenstak. Tous droits réservés.</span>
+          <span>
+            &copy; {new Date().getFullYear()} Zenstak. Tous droits réservés.
+          </span>
           <div className="flex flex-wrap items-center gap-4">
-            <a href="#applications" className="transition hover:text-zinc-900 dark:hover:text-white">
+            <a
+              href="#applications"
+              className="transition hover:text-zinc-900 dark:hover:text-white"
+            >
               Suite
             </a>
-            <a href="#workflows" className="transition hover:text-zinc-900 dark:hover:text-white">
+            <a
+              href="#workflows"
+              className="transition hover:text-zinc-900 dark:hover:text-white"
+            >
               Workflows
             </a>
-            <a href="#ressources" className="transition hover:text-zinc-900 dark:hover:text-white">
+            <a
+              href="#ressources"
+              className="transition hover:text-zinc-900 dark:hover:text-white"
+            >
               Ressources
             </a>
-            <a href="mailto:hello@zenstak.com" className="transition hover:text-zinc-900 dark:hover:text-white">
+            <a
+              href="mailto:hello@zenstak.com"
+              className="transition hover:text-zinc-900 dark:hover:text-white"
+            >
               Contact
             </a>
           </div>
